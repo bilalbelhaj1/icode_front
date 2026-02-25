@@ -1,5 +1,5 @@
 export interface Member {
-    _id:number | undefined,
+    _id:number | 0,
     firstName:string,
     familyName:string,
     email:string,

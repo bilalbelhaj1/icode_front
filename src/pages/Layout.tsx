@@ -1,5 +1,5 @@
 import { Outlet, Link } from "@tanstack/react-router";
-import { Menu, Users, ScanLine, LayoutDashboard, Calendar, X, Lock } from "lucide-react";
+import { Menu, Users, ScanLine, Calendar, X, Lock } from "lucide-react";
 import { useState } from "react";
 import logo from "../../public/logo.jpeg"
 

@@ -29,6 +29,7 @@ export default function AdminLogin() {
         type: "success",
         message: "Login successful",
       });
+      console.log(res.data)
       // small delay to show animation
       setTimeout(() => {
         navigate({ to: "/dashboard/members" });

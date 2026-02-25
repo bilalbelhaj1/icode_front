@@ -59,6 +59,7 @@ export default function ScannerControl() {
           }
         },
         (errorMessage) => {
+          console.log(errorMessage)
           // This fires constantly while scanning, we leave it empty
         }
       );
