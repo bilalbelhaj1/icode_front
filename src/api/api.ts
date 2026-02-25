@@ -1,6 +1,6 @@
 import axios from "axios"
 const api = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: "https://express-js-on-vercel-kappa-roan-92.vercel.app",
     withCredentials:true
 })
 
