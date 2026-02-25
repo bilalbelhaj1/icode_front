@@ -3,7 +3,7 @@ import type { Member } from "../types/types";
 import { addMember } from "../api/memberApi";
 
 export default function AddMemberModal({ onAdd, onClose }: { onAdd: (data: Member) => void, onClose: () => void }) {
-  const [form, setForm] = useState<Member>({ firstName:"", familyName: "", phoneNumber:"", apogee:"" ,email: "" });
+  const [form, setForm] = useState<Member>({ firstName:"", familyName: "", phoneNumber:"", apogee:"" ,email: "", _id:0, createdAt:"" });
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false)
 
