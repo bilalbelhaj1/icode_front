@@ -83,8 +83,10 @@ export default function MembersPage() {
           </h1>
           <p className="text-gray-500 text-sm">Manage Icode club members</p>
         </div>
+        <p>
+          Total Members: {members.length}
+        </p>
 
-        {/* ✅ buttons wrapper */}
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <button
             onClick={() => { setMode("add"); setOpenModal(true); }}
@@ -102,7 +104,6 @@ export default function MembersPage() {
         </div>
       </div>
 
-      {/* Search Bar */}
       <div className="bg-white rounded-2xl shadow-sm border border-emerald-100 p-2 md:p-4">
         <div className="relative w-full md:w-96">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
@@ -115,17 +116,14 @@ export default function MembersPage() {
         </div>
       </div>
 
-      {/* Members List */}
       {filteredMembers.length > 0 ? (
         <>
-          {/* MOBILE CARD VIEW (Visible on small screens) */}
           <div className="grid grid-cols-1 gap-4 md:hidden">
           {filteredMembers.map((m) => (
             <div key={m._id} className="bg-white p-5 rounded-2xl border border-emerald-50 shadow-sm space-y-4">
               
-              {/* Top Section: Name and Action Button */}
               <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0 flex-1"> {/* min-w-0 is crucial for text-truncation/wrapping */}
+                <div className="min-w-0 flex-1"> 
                   <h3 className="font-bold text-gray-900 text-lg leading-tight truncate">
                     {m.firstName} {m.familyName}
                   </h3>
@@ -135,7 +133,6 @@ export default function MembersPage() {
                   </div>
                 </div>
                 
-                {/* Action Button: Kept in a shrink-0 container to prevent jumping */}
                 <div className="flex shrink-0 gap-2">
                   <button 
                     onClick={() => handleOnUpdate(m._id)} 
@@ -146,7 +143,6 @@ export default function MembersPage() {
                 </div>
               </div>
       
-      {/* Bottom Section: Details Grid */}
       <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
         <div className="space-y-1">
           <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Phone</p>
@@ -165,7 +161,6 @@ export default function MembersPage() {
         </div>
       </div>
 
-      {/* Optional: Show joined date in a subtle way */}
       <div className="flex items-center gap-2 text-[11px] text-gray-400 pt-1">
         <Calendar size={12} />
         <span>Joined: {m.createdAt}</span>
@@ -174,7 +169,6 @@ export default function MembersPage() {
   ))}
 </div>
 
-          {/* DESKTOP TABLE VIEW (Hidden on small screens) */}
           <div className="hidden md:block bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">

@@ -12,7 +12,7 @@ export default function AdminLogin() {
     password: "",
   });
   const [message, setMessage] = useState<MessageType | null>(null);
-  const [loading, setLoading] = useState(false); // track form submission
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -20,8 +20,8 @@ export default function AdminLogin() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setLoading(true); // start animation
-    setMessage(null); // reset message
+    setLoading(true);
+    setMessage(null);
 
     try {
       const res = await login(form.email, form.password);
@@ -30,7 +30,6 @@ export default function AdminLogin() {
         message: "Login successful",
       });
       console.log(res.data)
-      // small delay to show animation
       setTimeout(() => {
         navigate({ to: "/dashboard/members" });
       }, 500);
@@ -41,7 +40,7 @@ export default function AdminLogin() {
         message: errorMsg,
       });
     } finally {
-      setLoading(false); // stop animation
+      setLoading(false); 
     }
   }
 
@@ -90,7 +89,6 @@ export default function AdminLogin() {
             </div>
           </div>
 
-          {/* Submit Button with animation */}
           <button
             type="submit"
             disabled={loading}

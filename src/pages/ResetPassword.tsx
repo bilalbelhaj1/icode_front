@@ -23,14 +23,10 @@ export default function ResetPassword() {
 
   const [message, setMessage] = useState<any>(null);
 
-  // ✅ separate loading states (better UX)
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [loadingCode, setLoadingCode] = useState(false);
   const [loadingReset, setLoadingReset] = useState(false);
 
-  // =========================
-  // SEND EMAIL
-  // =========================
   async function handleSendCode(e: React.FormEvent) {
     e.preventDefault();
     if (loadingEmail) return;
@@ -54,9 +50,6 @@ export default function ResetPassword() {
     }
   }
 
-  // =========================
-  // VERIFY CODE
-  // =========================
   async function handleVerifyCode(e: React.FormEvent) {
     e.preventDefault();
     if (loadingCode) return;
@@ -78,9 +71,6 @@ export default function ResetPassword() {
     }
   }
 
-  // =========================
-  // RESET PASSWORD
-  // =========================
   async function handleResetPassword(e: React.FormEvent) {
     e.preventDefault();
     if (loadingReset) return;
@@ -107,9 +97,6 @@ export default function ResetPassword() {
     }
   }
 
-  // =========================
-  // UI
-  // =========================
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 to-green-100 p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-emerald-100 p-6 space-y-5">
@@ -119,7 +106,6 @@ export default function ResetPassword() {
           Reset Password
         </h1>
 
-        {/* ================= EMAIL ================= */}
         {step === "enterEmail" && (
           <form onSubmit={handleSendCode} className="space-y-4">
             <input
@@ -143,7 +129,6 @@ export default function ResetPassword() {
           </form>
         )}
 
-        {/* ================= CODE ================= */}
         {step === "enterCode" && (
           <form onSubmit={handleVerifyCode} className="space-y-4">
             <input
@@ -166,7 +151,6 @@ export default function ResetPassword() {
           </form>
         )}
 
-        {/* ================= PASSWORD ================= */}
         {step === "enterPassword" && (
           <form onSubmit={handleResetPassword} className="space-y-4">
             <input
@@ -206,7 +190,6 @@ export default function ResetPassword() {
           </form>
         )}
 
-        {/* ================= SUCCESS ================= */}
         {step === "success" && (
           <div className="space-y-4 text-center">
             <div className="text-emerald-600 font-semibold">
